@@ -8,6 +8,7 @@ export async function outputFile(filepath, data, options) {
   await fs.promises.writeFile(filepath, data, options)
 }
 
+console.log('copyDirSync')
 export function copyDirSync(srcDir, destDir) {
   if (!fs.existsSync(srcDir))
     return
