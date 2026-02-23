@@ -4,7 +4,7 @@
 
 ## License
 
-<!-- [MIT](./LICENSE) License © [Encode Studio](https://github.com/encode-studio-fe) -->
+<!-- [MIT](./LICENSE) License © [Encode Studio](https://github.com/qingFeng818) -->
 
 ## 特性
 
