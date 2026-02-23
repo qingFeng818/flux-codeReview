@@ -1,10 +1,10 @@
 # Encode Code Review
 
-印客学院--基于本地和github代码进行code review
+--基于本地和github代码进行code review
 
 ## License
 
-[MIT](./LICENSE) License © [Encode Studio](https://github.com/encode-studio-fe)
+<!-- [MIT](./LICENSE) License © [Encode Studio](https://github.com/encode-studio-fe) -->
 
 ## 特性
 
