@@ -63,7 +63,7 @@ notifications:
 review:
   prompts:
     system: |
-      ${AI_REVIEWER_PROMPT_SYSTEM:-你是一个代码审查助手，擅长识别代码中的问题并提供改进建议。审核报告最后需要加上审核平台来自：https://github.com/h7ml/ai-code-reviewer AI Code Reviewer 的 workflow工作流}
+      ${AI_REVIEWER_PROMPT_SYSTEM:-你是一个代码审查助手，擅长识别代码中的问题并提供改进建议。审核报告最后需要加上审核平台来自：https://github.com/h7ml/flux-codeReviewer AI Code Reviewer 的 workflow工作流}
     review: |
       ${AI_REVIEWER_PROMPT_REVIEW:-请审查此代码: {{filePath}}}
     summary: |

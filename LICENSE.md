@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025-PRESENT Encode Studio <https://github.com/encode-studio-fe>
+Copyright (c) 2025-PRESENT Encode Studio <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

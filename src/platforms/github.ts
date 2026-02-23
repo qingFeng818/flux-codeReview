@@ -52,7 +52,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'Encode-AI-Code-Review',
+          'User-Agent': 'Encode-flux-codeReview',
         },
       })
 
@@ -70,7 +70,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'Encode-AI-Code-Review',
+          'User-Agent': 'Encode-flux-codeReview',
         },
       })
 
@@ -129,7 +129,7 @@ export class GitHubPlatform implements Platform {
           headers: {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Encode-AI-Code-Review',
+            'User-Agent': 'Encode-flux-codeReview',
           },
         },
       )
@@ -153,7 +153,7 @@ export class GitHubPlatform implements Platform {
               'Authorization': `token ${this.token}`,
               'Accept': 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
-              'User-Agent': 'Encode-AI-Code-Review',
+              'User-Agent': 'Encode-flux-codeReview',
             },
             body: JSON.stringify({
               commit_id: commitId,
@@ -200,7 +200,7 @@ export class GitHubPlatform implements Platform {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json',
-            'User-Agent': 'Encode-AI-Code-Review',
+            'User-Agent': 'Encode-flux-codeReview',
           },
           body: JSON.stringify({
             body: `## AI代码审查总结\n\n${summary}`,
@@ -230,7 +230,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3.raw',
-          'User-Agent': 'Encode-AI-Code-Review',
+          'User-Agent': 'Encode-flux-codeReview',
         },
       })
 
@@ -272,7 +272,7 @@ export class GitHubPlatform implements Platform {
           headers: {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Encode-AI-Code-Review',
+            'User-Agent': 'Encode-flux-codeReview',
           },
         },
       )
@@ -312,7 +312,7 @@ export class GitHubPlatform implements Platform {
               'Authorization': `token ${this.token}`,
               'Accept': 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
-              'User-Agent': 'Encode-AI-Code-Review',
+              'User-Agent': 'Encode-flux-codeReview',
             },
             body: JSON.stringify({
               commit_id: commitId,

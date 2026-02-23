@@ -1,19 +1,20 @@
 {
   "name": "encode-code-review",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "packageManager": "pnpm@10.6.2",
-  "description": "印客学院--基于本地和github代码进行code review",
+  "description": "基于本地和github代码进行code review",
   "author": "chenghuai",
   "license": "MIT",
-  "homepage": "https://github.com/encode-studio-fe/ai-code-review",
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/encode-studio-fe/ai-code-review.git"
+    "url": ""
   },
-  "bugs": "https://github.com/encode-studio-fe/ai-code-review/issues",
+  "bugs": "",
   "keywords": [
     "encode",
+    "flux",
     "code-review",
     "ai",
     "github",
@@ -50,7 +51,7 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
-    "review": "tsx src/cli.ts github-pr --owner encode-studio-fe --repo ai-code-review --pr-id 2"
+    "review": "tsx src/cli.ts github-pr --owner encode-studio-fe --repo flux-codeReview --pr-id 2"
   },
   "dependencies": {
     "cac": "^6.7.14",

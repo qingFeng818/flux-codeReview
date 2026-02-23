@@ -33,7 +33,7 @@ export class OpenAIProvider implements AiProvider {
     if (isOpenRouter) {
       consola.info('检测到使用OpenRouter API，添加相应配置')
       clientOptions.defaultHeaders = {
-        'HTTP-Referer': 'https://github.com/encode-studio-fe/ai-code-review',
+        'HTTP-Referer': 'https://github.com/encode-studio-fe/flux-codeReview',
         'X-Title': 'Encode Studio Code Review',
       }
 
@@ -45,7 +45,7 @@ export class OpenAIProvider implements AiProvider {
 
       // 为OpenRouter添加模型路由
       if (config.model.includes('/')) {
-        clientOptions.defaultHeaders['HTTP-Referer'] = `https://github.com/encode-studio-fe/ai-code-review (${config.model})`
+        clientOptions.defaultHeaders['HTTP-Referer'] = `https://github.com/encode-studio-fe/flux-codeReview (${config.model})`
       }
     }
 
