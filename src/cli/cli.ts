@@ -64,7 +64,6 @@ cli
           type: 'local',
         },
       })
-
       const reviewer = new CodeReviewer({
         config,
         path: options.path,
