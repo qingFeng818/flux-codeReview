@@ -52,19 +52,19 @@ export class LocalPlatform implements Platform {
         command = 'git diff --name-status HEAD'
       }
       const { stdout } = await execAsync(command, { cwd: this.path })
+      console.log(stdout, 'stdout')
       // 解析git输出获取修改的文件
       const files: { status: string, file: string }[] = []
       const lines = stdout.trim().split('\n')
       for (const line of lines) {
         // 修复正则表达式避免指数级回溯
-        const match = line.match(/^([AMDRTCU?])\s+(\S+)$/)
+        const match = line.match(/^([AMDRT])\s+(\S+)$/)
         if (match) {
           const [, status, file] = match
           files.push({ status, file })
         }
       }
       const diffs: CodeDiff[] = []
-
       for (const { status, file } of files) {
         // 跳过删除的文件
         // D 表示删除、A 表示新增 、R 表示重命名 、 C 表示复制 、 U 表示有冲突 、 ?? 表示未追踪
