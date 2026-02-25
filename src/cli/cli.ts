@@ -61,7 +61,7 @@ cli
     try {
       const config = await loadConfig(options.config, {
         platform: {
-          type: 'local',
+          type: 'github',
         },
       })
 
