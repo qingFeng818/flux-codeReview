@@ -26,7 +26,7 @@ done
 
 # 生成配置文件
 echo "正在生成配置文件..."
-if ! .github/generate-config.sh --output .encode_review.yml; then
+if ! .github/generate-config.sh --output .flux_codeReview.yml; then
   echo "::error::配置文件生成失败"
   ERRORS+=("配置文件生成失败")
 else

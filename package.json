@@ -1,5 +1,5 @@
 {
-  "name": "encode-code-review",
+  "name": "flux-codeReview",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@10.6.2",
@@ -32,7 +32,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "encode-code-review": "dist/cli.mjs",
+    "flux-codeReview": "dist/cli.mjs",
     "encode-cr": "dist/cli.mjs"
   },
   "files": [

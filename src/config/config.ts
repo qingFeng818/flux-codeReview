@@ -129,10 +129,10 @@ function loadEnvConfig(): Partial<AiReviewerConfig> {
 async function loadConfigFile(configPath?: string): Promise<Partial<AiReviewerConfig>> {
   const configPaths = [
     configPath,
-    '.encode_review.yml',
-    '.encode_review.yaml',
-    '.encode_review.json',
-    '.encode_review.config.js',
+    '.flux_codeReview.yml',
+    '.flux_codeReview.yaml',
+    '.flux_codeReview.json',
+    '.flux_codeReview.config.js',
   ].filter(Boolean) as string[]
 
   for (const path of configPaths) {

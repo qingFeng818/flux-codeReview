@@ -25,18 +25,18 @@
 
 ```bash
 # 全局安装
-npm install -g encode-code-review
+npm install -g flux-codeReview
 
 # 或使用pnpm
-pnpm add -g encode-code-review
+pnpm add -g flux-codeReview
 
 # 或使用yarn
-yarn global add encode-code-review
+yarn global add flux-codeReview
 ```
 
 ## 配置
 
-在项目根目录创建 `.encode_review.yml` 文件：
+在项目根目录创建 `.flux_codeReview.yml` 文件：
 
 ```yaml
 # AI模型配置
@@ -86,10 +86,10 @@ review:
 
 ```bash
 # 审查GitHub拉取请求
-encode-code-review github-pr --owner user --repo project --pr-id 123
+flux-codeReview github-pr --owner user --repo project --pr-id 123
 
 # 审查本地 diff 代码
-encode-code-review local --path ./test_review_file/index.js
+flux-codeReview local --path ./test_review_file/index.js
 ```
 
 ### GitHub Actions集成
