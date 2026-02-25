@@ -32,10 +32,9 @@ cli
 
       const config = await loadConfig(options.config, {
         platform: {
-          type: 'github',
+          type: 'local',
         },
       })
-
       const reviewer = new CodeReviewer({
         config,
         owner: options.owner,

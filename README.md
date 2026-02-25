@@ -42,7 +42,7 @@ yarn global add flux-codeReview
 # AI模型配置
 ai:
   provider: openai # 或 ollama
-  model: deepseek/deepseek-chat-v3-0324:free # 或其他模型
+  model: deepseek-chat # 或其他模型
   apiKey: your_openai_key # API密钥可直接配置在文件中
   baseUrl: https://openrouter.ai/api/v1
   temperature: 0.1
@@ -100,7 +100,7 @@ flux-codeReview local --path ./test_review_file/index.js
 
    - `AI_REVIEWER_OPENAI_KEY`: (必需) OpenAI/OpenRouter API密钥
    - `AI_REVIEWER_GITHUB_TOKEN`: (必需) GitHub个人访问令牌
-   - `AI_REVIEWER_MODEL`: (可选) 使用的AI模型, 默认: `deepseek/deepseek-chat-v3-0324:free`
+   - `AI_REVIEWER_MODEL`: (可选) 使用的AI模型, 默认: `deepseek-chat`
    - `AI_REVIEWER_BASE_URL`: (可选) API基础URL, 默认: `https://openrouter.ai/api/v1`
    - `AI_REVIEWER_PROMPT_SYSTEM`: (可选) 自定义系统提示词
    - `AI_REVIEWER_PROMPT_REVIEW`: (可选) 自定义审查提示词

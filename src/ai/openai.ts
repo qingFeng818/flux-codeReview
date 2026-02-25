@@ -20,7 +20,7 @@ export class OpenAIProvider implements AiProvider {
     consola.info(`OpenAI/OpenRouter初始配置: provider=${config.provider}, model=${config.model}, baseUrl=${config.baseUrl || '默认'}`)
 
     this.config = config
-
+    console.log('OpenAI/OpenRouter配置:', config)
     // 检查是否使用OpenRouter
     const isOpenRouter = config.baseUrl?.includes('openrouter.ai')
 
@@ -110,7 +110,6 @@ export class OpenAIProvider implements AiProvider {
           max_tokens: requestBody.max_tokens,
           messages_count: requestBody.messages.length,
         }, null, 2)}`)
-
         const response = await this.client.chat.completions.create(requestBody)
 
         consola.debug(`API响应: ${JSON.stringify({

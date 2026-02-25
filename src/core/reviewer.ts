@@ -54,7 +54,6 @@ export class CodeReviewer {
 
   constructor(options: CodeReviewOptions) {
     this.config = options.config
-
     // 验证配置
     if (!validateConfig(this.config)) {
       throw new Error('无效配置，请检查配置和环境变量')

@@ -1,0 +1,11 @@
+{
+  "ai": {
+    "provider": "openai",
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKey": "sk-c7585047638e436587d138d991f890f1",
+    "model": "deepseek-chat"
+  },
+  "platform": {
+    "type": "local"
+  }
+}
