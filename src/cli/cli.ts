@@ -32,7 +32,7 @@ cli
 
       const config = await loadConfig(options.config, {
         platform: {
-          type: 'local',
+          type: 'github',
         },
       })
       const reviewer = new CodeReviewer({

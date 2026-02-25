@@ -44,7 +44,7 @@ const defaultConfig: AiReviewerConfig = {
     maxTokens: 4000,
   },
   platform: {
-    type: 'local',
+    type: 'github',
   },
   notifications: {},
   review: {
