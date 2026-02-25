@@ -51,7 +51,8 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
-    "review": "tsx src/cli.ts github-pr --owner qingFeng818 --repo flux-codeReview --pr-id 2"
+    "review": "tsx src/cli.ts github-pr --owner qingFeng818 --repo flux-codeReview --pr-id 2",
+    "review:local": "tsx src/cli.ts local --path . --commit HEAD"
   },
   "dependencies": {
     "cac": "^6.7.14",

@@ -76,12 +76,13 @@ export class OpenAIProvider implements AiProvider {
 
       consola.debug(`使用OpenAI审查文件: ${diff.newPath}`)
 
-      const systemPrompt = this.config.review?.prompts?.system || `你是一个专业的代码审查助手，擅长识别代码中的问题并提供改进建议。
-请按照以下格式提供反馈:
-1. 分析代码差异
-2. 列出具体问题
-3. 对每个问题提供改进建议
-4. 提供总结`
+      const systemPrompt = this.config.review?.prompts?.system
+        || `你是一个专业的代码审查助手，擅长识别代码中的问题并提供改进建议。
+            请按照以下格式提供反馈:
+            1. 分析代码差异
+            2. 列出具体问题
+            3. 对每个问题提供改进建议
+            4. 提供总结`
 
       try {
         consola.debug('准备发送API请求...')

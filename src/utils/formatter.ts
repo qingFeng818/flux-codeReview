@@ -64,6 +64,7 @@ export class OutputFormatter {
 
     // 文件摘要
     if (result.summary) {
+      console.log(result.summary, 'result.summary')
       output += `\n  ${chalk.bold('摘要: ')}${result.summary.replace(/\n/g, '\n  ')}\n`
     }
 

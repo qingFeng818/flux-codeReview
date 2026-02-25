@@ -39,7 +39,7 @@ export interface AiReviewerConfig {
 const defaultConfig: AiReviewerConfig = {
   ai: {
     provider: 'openai',
-    model: 'deepseek-chat',
+    model: 'deepseek/deepseek-chat-v3-0324',
     temperature: 0.1,
     maxTokens: 4000,
   },
@@ -82,7 +82,7 @@ function loadEnvConfig(): Partial<AiReviewerConfig> {
   const config: Partial<AiReviewerConfig> = {
     ai: {
       provider: (process.env.AI_REVIEWER_PROVIDER as 'openai') || undefined,
-      model: process.env.AI_REVIEWER_MODEL || 'deepseek-chat',
+      model: process.env.AI_REVIEWER_MODEL || 'deepseek/deepseek-chat-v3-0324',
       apiKey: process.env.AI_REVIEWER_OPENAI_KEY,
       baseUrl: process.env.AI_REVIEWER_BASE_URL,
       temperature: process.env.AI_REVIEWER_TEMPERATURE

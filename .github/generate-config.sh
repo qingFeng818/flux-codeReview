@@ -43,7 +43,7 @@ fi
 cat > "$OUTPUT_FILE" << EOF
 ai:
   provider: 'openai'
-  model: 'deepseek-chat'
+  model: 'deepseek/deepseek-chat-v3-0324'
   apiKey: '${AI_REVIEWER_OPENAI_KEY}'
   baseUrl: 'https://openrouter.ai'
   temperature: 0.1

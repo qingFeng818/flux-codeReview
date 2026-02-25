@@ -32,7 +32,7 @@ function buildConfig() {
   return {
     ai: {
       provider: process.env.AI_REVIEWER_PROVIDER || 'openai',
-      model: process.env.AI_REVIEWER_MODEL || 'deepseek-chat',
+      model: process.env.AI_REVIEWER_MODEL || 'deepseek/deepseek-chat-v3-0324',
       apiKey: process.env.AI_REVIEWER_OPENAI_KEY || '',
       baseUrl: process.env.AI_REVIEWER_BASE_URL || 'https://openrouter.ai',
       temperature: Number.parseFloat(process.env.AI_REVIEWER_TEMPERATURE || 0.1),
