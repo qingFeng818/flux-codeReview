@@ -6,7 +6,7 @@
 set -e
 
 # 默认配置文件路径
-OUTPUT_FILE=".encode_review.yml"
+OUTPUT_FILE=".flux-codeReview.yml"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
