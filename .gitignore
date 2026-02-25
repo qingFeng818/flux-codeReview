@@ -10,7 +10,7 @@ logs
 node_modules
 temp
 .eslintcache
-.encode_review.yaml
-.encode_review.yaml,
-.encode_review.json,
-.encode_review.config.js
+.flux_codeReview.yaml
+.flux_codeReview.yaml,
+.flux_codeReview.json,
+.flux_codeReview.config.js

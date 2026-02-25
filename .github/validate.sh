@@ -35,11 +35,11 @@ fi
 
 # 验证配置文件
 echo "验证配置文件..."
-if [ ! -f ".encode_review.yml" ]; then
+if [ ! -f ".flux_codeReview.yml" ]; then
   echo "::error::配置文件不存在"
   ERRORS+=("配置文件不存在")
 else
-  file_size=$(stat -c%s ".encode_review.yml" 2>/dev/null || stat -f%z ".encode_review.yml")
+  file_size=$(stat -c%s ".flux_codeReview.yml" 2>/dev/null || stat -f%z ".flux_codeReview.yml")
   echo "配置文件大小: $file_size 字节"
   if [ "$file_size" -lt 10 ]; then
     echo "::error::配置文件为空"
