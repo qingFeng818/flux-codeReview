@@ -53,7 +53,6 @@ cli
 /**
  * 审查本地代码
  */
-consola.info('test token')
 cli
   .command('local', '审查本地代码')
   .option('--path <path>', '代码路径')
