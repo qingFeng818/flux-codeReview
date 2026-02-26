@@ -145,7 +145,7 @@ export class GitHubPlatform implements Platform {
       // 如果有具体行号，添加行注释
       if (line) {
         // 创建一个审查并添加评论
-        console.debug(`${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`, '创建一个审查并添加评论')
+        consola.info(`${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`, 'get review url')
         const reviewResponse = await fetch(
           `${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`,
           {
@@ -169,7 +169,7 @@ export class GitHubPlatform implements Platform {
             }),
           },
         )
-
+        consola.info(`提交评论响应: ${reviewResponse}`)
         if (!reviewResponse.ok) {
           const errorText = await reviewResponse.text()
           throw new Error(`GitHub API创建审查失败: ${reviewResponse.status} ${errorText}`)
