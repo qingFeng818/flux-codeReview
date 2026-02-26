@@ -277,6 +277,7 @@ export class GitHubPlatform implements Platform {
           },
         },
       )
+      consola.info(`获取PR信息响应: ${pullResponse}`)
 
       if (!pullResponse.ok) {
         const errorText = await pullResponse.text()
