@@ -145,6 +145,7 @@ export class GitHubPlatform implements Platform {
       // 如果有具体行号，添加行注释
       if (line) {
         // 创建一个审查并添加评论
+        console.debug(`${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`, '创建一个审查并添加评论')
         const reviewResponse = await fetch(
           `${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`,
           {
