@@ -94,7 +94,7 @@ function loadEnvConfig(): Partial<AiReviewerConfig> {
     },
     platform: {
       type: (process.env.AI_REVIEWER_PLATFORM as 'github' | 'local') || undefined,
-      token: process.env.AI_REVIEWER_GITHUB_TOKEN,
+      token: process.env.AI_REVIEWER_GITHUB_TOKEN1,
       url: process.env.AI_REVIEWER_PLATFORM_URL,
     },
     notifications: {},

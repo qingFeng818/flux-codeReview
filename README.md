@@ -99,7 +99,7 @@ flux-codeReview local --path ./test_review_file/index.js
 1. 在仓库的Settings > Secrets and variables > Actions中设置以下secrets：
 
    - `AI_REVIEWER_OPENAI_KEY`: (必需) OpenAI/OpenRouter API密钥
-   - `AI_REVIEWER_GITHUB_TOKEN`: (必需) GitHub个人访问令牌
+   - `AI_REVIEWER_GITHUB_TOKEN1`: (必需) GitHub个人访问令牌
    - `AI_REVIEWER_MODEL`: (可选) 使用的AI模型, 默认: `deepseek-chat`
    - `AI_REVIEWER_BASE_URL`: (可选) API基础URL, 默认: `https://openrouter.ai/api/v1`
    - `AI_REVIEWER_PROMPT_SYSTEM`: (可选) 自定义系统提示词

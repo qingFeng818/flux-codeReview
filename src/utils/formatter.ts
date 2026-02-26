@@ -16,6 +16,7 @@ export class OutputFormatter {
     const warningCount = allIssues.filter(i => i.severity === 'warning').length
     const infoCount = allIssues.filter(i => i.severity === 'info').length
 
+    console.log(results, 'results')
     // 构建头部统计信息
     let output = '\n'
     output += this.formatHeader('代码审查报告')
@@ -63,7 +64,7 @@ export class OutputFormatter {
     output += `  ${chalk.red(`错误: ${errorIssues.length}个`)} | ${chalk.yellow(`警告: ${warningIssues.length}个`)} | ${chalk.blue(`提示: ${infoIssues.length}个`)}\n`
 
     // 文件摘要
-    if (result.summary) {
+    if (result.summary && Object.prototype.toString.call(result.summary) === '[object string]') {
       console.log(result.summary, 'result.summary')
       output += `\n  ${chalk.bold('摘要: ')}${result.summary.replace(/\n/g, '\n  ')}\n`
     }
