@@ -306,7 +306,7 @@ export class GitHubPlatform implements Platform {
 
       // 如果有行评论，创建一个批量审查
       if (comments.length > 0) {
-        consola.info(`提交评论响应URL: ${`${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`}`)
+        consola.info(`准备提交 ${comments.length} 条行评论`, comments)
         const reviewResponse = await fetch(
           `${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`,
           {
@@ -324,7 +324,7 @@ export class GitHubPlatform implements Platform {
             }),
           },
         )
-        consola.info(`提交评论响应: ${reviewResponse}`)
+        consola.info(`提交评论响应: ${reviewResponse}`, reviewResponse)
         if (!reviewResponse.ok) {
           const errorText = await reviewResponse.text()
           throw new Error(`GitHub API批量创建评论失败: ${reviewResponse.status} ${errorText}`)

@@ -87,20 +87,19 @@ export class OpenAIProvider implements AiProvider {
       try {
         consola.debug('准备发送API请求...')
         const requestBody = {
-          model: this.config.model,
-          temperature: this.config.temperature || 0.1,
-          max_tokens: this.config.maxTokens || 4000,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
+          model: this.config.model, // 指定使用的AI模型名称（如 gpt-4、deepseek-chat 等）
+          temperature: this.config.temperature || 0.1, // 控制输出随机性（0.0-2.0），值越低输出越确定，值越高越随机
+          max_tokens: this.config.maxTokens || 4000, // 限制生成的最大token数量，控制响应长度和成本
+          frequency_penalty: 0, // 频率惩罚（-2.0到2.0），减少重复内容的生成，0表示不惩罚
+          presence_penalty: 0, // 存在惩罚（-2.0到2.0），鼓励生成新的话题和内容，0表示不惩罚
           messages: [
             {
-              role: 'system' as const,
-              content: systemPrompt,
+              role: 'system' as const, // 系统角色，用于设置AI的行为和角色
+              content: systemPrompt, // 系统提示词，定义AI的审查标准和行为准则
             },
             {
-              role: 'user' as const,
-              content: prompt,
+              role: 'user' as const, // 用户角色，代表用户的输入
+              content: prompt, // 用户提示词，包含需要审查的代码内容
             },
           ],
         }
@@ -281,7 +280,7 @@ export class OpenAIProvider implements AiProvider {
 \`\`\`diff
 ${diff.diffContent}
 \`\`\`
-
+R
 请按照以下结构提供评论：
 
 1. **总体评价**: 简要总结代码质量，包括积极方面和需要改进的地方
@@ -333,12 +332,12 @@ ${diff.diffContent}
 ${severitySummary}
 ${result.summary ? `\n文件摘要: ${result.summary}\n` : ''}
 
-详细问题:
-${result.issues.map((issue) => {
-  const lineInfo = issue.line ? `第${issue.line}行` : '通用'
-  const suggestion = issue.suggestion ? `\n建议: ${issue.suggestion}` : ''
-  return `- [${issue.severity.toUpperCase()}] ${lineInfo}: ${issue.message}${suggestion}`
-}).join('\n')}
+    详细问题:
+    ${result.issues.map((issue) => {
+      const lineInfo = issue.line ? `第${issue.line}行` : '通用'
+      const suggestion = issue.suggestion ? `\n建议: ${issue.suggestion}` : ''
+      return `- [${issue.severity.toUpperCase()}] ${lineInfo}: ${issue.message}${suggestion}`
+    }).join('\n')}
 `
     }).join('\n\n')
 
@@ -480,11 +479,7 @@ ${detailedResults}
           const severity = (match[2] || 'info') as 'info' | 'warning' | 'error'
           const message = match[3].trim()
 
-          issues.push({
-            line,
-            severity,
-            message,
-          })
+          issues.push({ line, severity, message })
 
           // 在循环体末尾执行下一次匹配
           match = problemRegex.exec(content)
@@ -501,9 +496,9 @@ ${detailedResults}
       }
 
       return {
-        file: filePath,
-        issues,
-        summary,
+        file: filePath, //  文件路径
+        issues, //  问题列表
+        summary, //  总结
       }
     }
     catch (error) {
