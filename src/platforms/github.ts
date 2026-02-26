@@ -297,7 +297,7 @@ export class GitHubPlatform implements Platform {
             const message = this.formatIssueComment(issue)
             comments.push({
               path: result.file,
-              position: issue.line,
+              line: issue.line,
               body: message,
             })
           }

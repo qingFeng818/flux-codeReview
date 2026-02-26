@@ -82,7 +82,11 @@ export class DefaultNotificationManager implements NotificationManager {
     try {
       // 检查平台是否支持批量提交
       if (platform.submitBatchReviewComments) {
-        // 使用平台的批量提交功能
+        // for (let i = 0; i < results.length; i += 5) {
+        //   const batch = results.slice(i, i + 5)
+        //   // 使用平台的批量提交功能
+        //   await platform.submitBatchReviewComments(batch)
+        // }
         await platform.submitBatchReviewComments(results)
       }
       else {
