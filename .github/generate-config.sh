@@ -51,7 +51,7 @@ ai:
 
 platform:
   type: 'github'
-  token: '${AI_REVIEWER_GITHUB_TOKEN1}'
+  token: '${AI_REVIEWER_GITHUB_TOKEN}'
   url: 'https://api.github.com'
 
 notifications:
