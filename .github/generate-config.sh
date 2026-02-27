@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     *)
       echo "未知参数: $1"
-      echo "用法: ./encode_review.sh [--output <配置文件路径>]"
+      echo "用法: ./flux-codeReview.sh [--output <配置文件路径>]"
       exit 1
       ;;
   esac
