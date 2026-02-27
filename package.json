@@ -1,7 +1,7 @@
 {
   "name": "flux-code-review",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "packageManager": "pnpm@10.6.2",
   "description": "基于本地和github代码进行code review",
   "author": "chenghuai",
@@ -45,7 +45,7 @@
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "nr build",
-    "release": "bumpp package.json --commit --tag && pnpm run build && pnpm publish",
+    "release": "bumpp package.json pnpm publish",
     "start": "tsx src/index.ts",
     "cli": "tsx src/cli.ts",
     "test": "vitest",
