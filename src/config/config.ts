@@ -39,12 +39,12 @@ export interface AiReviewerConfig {
 const defaultConfig: AiReviewerConfig = {
   ai: {
     provider: 'openai',
-    model: 'deepseek/deepseek-chat-v3-0324:free',
+    model: 'deepseek/deepseek-chat-v3-0324',
     temperature: 0.1,
     maxTokens: 4000,
   },
   platform: {
-    type: 'local',
+    type: 'github',
   },
   notifications: {},
   review: {
@@ -82,7 +82,7 @@ function loadEnvConfig(): Partial<AiReviewerConfig> {
   const config: Partial<AiReviewerConfig> = {
     ai: {
       provider: (process.env.AI_REVIEWER_PROVIDER as 'openai') || undefined,
-      model: process.env.AI_REVIEWER_MODEL || 'deepseek/deepseek-chat-v3-0324:free',
+      model: process.env.AI_REVIEWER_MODEL || 'deepseek/deepseek-chat-v3-0324',
       apiKey: process.env.AI_REVIEWER_OPENAI_KEY,
       baseUrl: process.env.AI_REVIEWER_BASE_URL,
       temperature: process.env.AI_REVIEWER_TEMPERATURE
@@ -129,10 +129,10 @@ function loadEnvConfig(): Partial<AiReviewerConfig> {
 async function loadConfigFile(configPath?: string): Promise<Partial<AiReviewerConfig>> {
   const configPaths = [
     configPath,
-    '.encode_review.yml',
-    '.encode_review.yaml',
-    '.encode_review.json',
-    '.encode_review.config.js',
+    '.flux-codeReview.yml',
+    '.flux-codeReview.yaml',
+    '.flux-codeReview.json',
+    '.flux-codeReview.config.js',
   ].filter(Boolean) as string[]
 
   for (const path of configPaths) {

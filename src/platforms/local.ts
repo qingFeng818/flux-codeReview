@@ -51,27 +51,23 @@ export class LocalPlatform implements Platform {
         // 获取工作目录的差异（包括暂存区）
         command = 'git diff --name-status HEAD'
       }
-
       const { stdout } = await execAsync(command, { cwd: this.path })
-
+      console.log(stdout, 'stdout')
       // 解析git输出获取修改的文件
       const files: { status: string, file: string }[] = []
-
       const lines = stdout.trim().split('\n')
       for (const line of lines) {
         // 修复正则表达式避免指数级回溯
-
         const match = line.match(/^([AMDRT])\s+(\S+)$/)
         if (match) {
           const [, status, file] = match
           files.push({ status, file })
         }
       }
-
       const diffs: CodeDiff[] = []
-
       for (const { status, file } of files) {
         // 跳过删除的文件
+        // D 表示删除、A 表示新增 、R 表示重命名 、 C 表示复制 、 U 表示有冲突 、 ?? 表示未追踪
         if (status === 'D') {
           continue
         }
@@ -85,13 +81,10 @@ export class LocalPlatform implements Platform {
           else {
             diffCommand = `git diff HEAD -- ${file}`
           }
-
           const { stdout: diffOutput } = await execAsync(diffCommand, { cwd: this.path })
-
           // 获取文件内容
-          const oldContent = ''
+          const oldContent = await this.getOldFileContent(file)
           const newContent = await this.getFileContent(file)
-
           diffs.push({
             oldPath: file,
             newPath: file,
@@ -137,6 +130,20 @@ export class LocalPlatform implements Platform {
     // 使用格式化工具美化总结输出
     const formattedSummary = OutputFormatter.formatSummary(summary)
     consola.log(formattedSummary)
+  }
+
+  /**
+   * 获取旧文件内容
+   */
+  private async getOldFileContent(filePath: string): Promise<string> {
+    try {
+      const { stdout } = await execAsync(`git show HEAD:${filePath}`, { cwd: this.path })
+      return stdout
+    }
+    catch (error) {
+      consola.warn(`获取旧文件内容时出错: ${filePath}`, error)
+      return '' // 返回空字符串表示文件不存在或无法访问
+    }
   }
 
   /**

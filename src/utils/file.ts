@@ -12,8 +12,8 @@ export class TempFileManager {
   private tempDir: string
 
   constructor() {
-    // 使用系统临时目录下的encode-code-review子目录
-    this.tempDir = resolve(os.tmpdir(), 'encode-code-review')
+    // 使用系统临时目录下的flux-codeReview子目录
+    this.tempDir = resolve(os.tmpdir(), 'flux-codeReview')
   }
 
   /**

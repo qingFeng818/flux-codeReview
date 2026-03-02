@@ -63,7 +63,7 @@ export class OutputFormatter {
     output += `  ${chalk.red(`错误: ${errorIssues.length}个`)} | ${chalk.yellow(`警告: ${warningIssues.length}个`)} | ${chalk.blue(`提示: ${infoIssues.length}个`)}\n`
 
     // 文件摘要
-    if (result.summary) {
+    if (result.summary && Object.prototype.toString.call(result.summary) === '[object string]') {
       output += `\n  ${chalk.bold('摘要: ')}${result.summary.replace(/\n/g, '\n  ')}\n`
     }
 

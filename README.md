@@ -1,4 +1,4 @@
-# Encode Code Review
+# Flux Code Review
 
 --基于本地和github代码进行code review
 
@@ -25,24 +25,24 @@
 
 ```bash
 # 全局安装
-npm install -g encode-code-review
+npm install -g flux-codeReview
 
 # 或使用pnpm
-pnpm add -g encode-code-review
+pnpm add -g flux-codeReview
 
 # 或使用yarn
-yarn global add encode-code-review
+yarn global add flux-codeReview
 ```
 
 ## 配置
 
-在项目根目录创建 `.encode_review.yml` 文件：
+在项目根目录创建 `.flux_codeReview.yml` 文件：
 
 ```yaml
 # AI模型配置
 ai:
   provider: openai # 或 ollama
-  model: deepseek/deepseek-chat-v3-0324:free # 或其他模型
+  model: deepseek-chat # 或其他模型
   apiKey: your_openai_key # API密钥可直接配置在文件中
   baseUrl: https://openrouter.ai/api/v1
   temperature: 0.1
@@ -86,10 +86,10 @@ review:
 
 ```bash
 # 审查GitHub拉取请求
-encode-code-review github-pr --owner user --repo project --pr-id 123
+flux-codeReview github-pr --owner user --repo project --pr-id 123
 
 # 审查本地 diff 代码
-encode-code-review local --path ./test_review_file/index.js
+flux-codeReview local --path ./test_review_file/index.js
 ```
 
 ### GitHub Actions集成
@@ -100,7 +100,7 @@ encode-code-review local --path ./test_review_file/index.js
 
    - `AI_REVIEWER_OPENAI_KEY`: (必需) OpenAI/OpenRouter API密钥
    - `AI_REVIEWER_GITHUB_TOKEN`: (必需) GitHub个人访问令牌
-   - `AI_REVIEWER_MODEL`: (可选) 使用的AI模型, 默认: `deepseek/deepseek-chat-v3-0324:free`
+   - `AI_REVIEWER_MODEL`: (可选) 使用的AI模型, 默认: `deepseek-chat`
    - `AI_REVIEWER_BASE_URL`: (可选) API基础URL, 默认: `https://openrouter.ai/api/v1`
    - `AI_REVIEWER_PROMPT_SYSTEM`: (可选) 自定义系统提示词
    - `AI_REVIEWER_PROMPT_REVIEW`: (可选) 自定义审查提示词

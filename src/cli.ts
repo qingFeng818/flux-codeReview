@@ -4,7 +4,7 @@ import { version } from '../package.json'
 import { initCli } from './cli/commands'
 
 // 设置进程标题
-process.title = 'encode-code-review'
+process.title = 'flux-codeReview'
 
 // 输出版本信息到调试日志
 

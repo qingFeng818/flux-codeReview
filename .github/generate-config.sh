@@ -6,7 +6,7 @@
 set -e
 
 # 默认配置文件路径
-OUTPUT_FILE=".encode_review.yml"
+OUTPUT_FILE=".flux-codeReview.yml"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     *)
       echo "未知参数: $1"
-      echo "用法: ./encode_review.sh [--output <配置文件路径>]"
+      echo "用法: ./flux-codeReview.sh [--output <配置文件路径>]"
       exit 1
       ;;
   esac
@@ -43,7 +43,7 @@ fi
 cat > "$OUTPUT_FILE" << EOF
 ai:
   provider: 'openai'
-  model: 'deepseek/deepseek-chat-v3-0324:free'
+  model: 'deepseek/deepseek-chat-v3-0324'
   apiKey: '${AI_REVIEWER_OPENAI_KEY}'
   baseUrl: 'https://openrouter.ai'
   temperature: 0.1

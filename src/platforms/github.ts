@@ -52,7 +52,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'Encode-flux-codeReview',
+          'User-Agent': 'Flux-flux-codeReview',
         },
       })
 
@@ -70,7 +70,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'Encode-flux-codeReview',
+          'User-Agent': 'Flux-flux-codeReview',
         },
       })
 
@@ -129,7 +129,7 @@ export class GitHubPlatform implements Platform {
           headers: {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Encode-flux-codeReview',
+            'User-Agent': 'Flux-flux-codeReview',
           },
         },
       )
@@ -145,6 +145,7 @@ export class GitHubPlatform implements Platform {
       // 如果有具体行号，添加行注释
       if (line) {
         // 创建一个审查并添加评论
+        consola.info(`${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`, 'get review url')
         const reviewResponse = await fetch(
           `${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`,
           {
@@ -153,7 +154,7 @@ export class GitHubPlatform implements Platform {
               'Authorization': `token ${this.token}`,
               'Accept': 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
-              'User-Agent': 'Encode-flux-codeReview',
+              'User-Agent': 'Flux-flux-codeReview',
             },
             body: JSON.stringify({
               commit_id: commitId,
@@ -168,7 +169,7 @@ export class GitHubPlatform implements Platform {
             }),
           },
         )
-
+        consola.info(`提交评论响应: ${reviewResponse}`)
         if (!reviewResponse.ok) {
           const errorText = await reviewResponse.text()
           throw new Error(`GitHub API创建审查失败: ${reviewResponse.status} ${errorText}`)
@@ -200,7 +201,7 @@ export class GitHubPlatform implements Platform {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json',
-            'User-Agent': 'Encode-flux-codeReview',
+            'User-Agent': 'Flux-flux-codeReview',
           },
           body: JSON.stringify({
             body: `## AI代码审查总结\n\n${summary}`,
@@ -230,7 +231,7 @@ export class GitHubPlatform implements Platform {
         headers: {
           'Authorization': `token ${this.token}`,
           'Accept': 'application/vnd.github.v3.raw',
-          'User-Agent': 'Encode-flux-codeReview',
+          'User-Agent': 'Flux-flux-codeReview',
         },
       })
 
@@ -272,10 +273,11 @@ export class GitHubPlatform implements Platform {
           headers: {
             'Authorization': `token ${this.token}`,
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Encode-flux-codeReview',
+            'User-Agent': 'Flux-flux-codeReview',
           },
         },
       )
+      consola.info(`获取PR信息响应: ${pullResponse}`)
 
       if (!pullResponse.ok) {
         const errorText = await pullResponse.text()
@@ -295,7 +297,7 @@ export class GitHubPlatform implements Platform {
             const message = this.formatIssueComment(issue)
             comments.push({
               path: result.file,
-              position: issue.line,
+              line: issue.line,
               body: message,
             })
           }
@@ -304,6 +306,7 @@ export class GitHubPlatform implements Platform {
 
       // 如果有行评论，创建一个批量审查
       if (comments.length > 0) {
+        consola.info(`准备提交 ${comments.length} 条行评论`, comments)
         const reviewResponse = await fetch(
           `${this.baseUrl}/repos/${this.owner}/${this.repo}/pulls/${this.prId}/reviews`,
           {
@@ -312,7 +315,7 @@ export class GitHubPlatform implements Platform {
               'Authorization': `token ${this.token}`,
               'Accept': 'application/vnd.github.v3+json',
               'Content-Type': 'application/json',
-              'User-Agent': 'Encode-flux-codeReview',
+              'User-Agent': 'Flux-flux-codeReview',
             },
             body: JSON.stringify({
               commit_id: commitId,
@@ -321,7 +324,7 @@ export class GitHubPlatform implements Platform {
             }),
           },
         )
-
+        consola.info(`提交评论响应: ${reviewResponse}`, reviewResponse)
         if (!reviewResponse.ok) {
           const errorText = await reviewResponse.text()
           throw new Error(`GitHub API批量创建评论失败: ${reviewResponse.status} ${errorText}`)

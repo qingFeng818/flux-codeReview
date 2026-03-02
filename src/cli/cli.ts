@@ -4,7 +4,7 @@ import { version } from '../../package.json'
 import { loadConfig } from '../config/config'
 import { CodeReviewer } from '../core/reviewer'
 
-const cli = cac('encode-code-review')
+const cli = cac('flux-codeReview')
 
 /**
  * 设置CLI版本和帮助信息
@@ -35,7 +35,6 @@ cli
           type: 'github',
         },
       })
-
       const reviewer = new CodeReviewer({
         config,
         owner: options.owner,
@@ -65,7 +64,6 @@ cli
           type: 'local',
         },
       })
-
       const reviewer = new CodeReviewer({
         config,
         path: options.path,

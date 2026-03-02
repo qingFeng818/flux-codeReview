@@ -1,38 +1,25 @@
 {
-  "name": "encode-code-review",
+  "name": "flux-code-review",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.10",
   "packageManager": "pnpm@10.6.2",
   "description": "基于本地和github代码进行code review",
-  "author": "chenghuai",
+  "author": "qingfeng",
   "license": "MIT",
   "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
+  "repository": { "type": "git", "url": "" },
   "bugs": "",
-  "keywords": [
-    "encode",
-    "flux",
-    "code-review",
-    "ai",
-    "github",
-    "openai"
-  ],
+  "keywords": ["encode", "flux", "code-review", "ai", "github", "openai"],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs"
-    },
+    ".": { "types": "./dist/index.d.mts", "import": "./dist/index.mjs" },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "bin": {
-    "encode-code-review": "dist/cli.mjs",
+    "flux-codeReview": "dist/cli.mjs",
     "encode-cr": "dist/cli.mjs"
   },
   "files": [
@@ -45,13 +32,14 @@
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "nr build",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp &&  npm publish",
     "start": "tsx src/index.ts",
     "cli": "tsx src/cli.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
-    "review": "tsx src/cli.ts github-pr --owner qingFeng818 --repo flux-codeReview --pr-id 2"
+    "review": "tsx src/cli.ts github-pr --owner qingFeng818 --repo flux-codeReview --pr-id 2",
+    "review:local": "tsx src/cli.ts local --path ."
   },
   "dependencies": {
     "cac": "^6.7.14",
@@ -68,7 +56,7 @@
     "@antfu/ni": "^0.21.12",
     "@antfu/utils": "^0.7.6",
     "@types/node": "^20.10.5",
-    "bumpp": "^9.2.0",
+    "bumpp": "^9.11.1",
     "eslint": "^8.56.0",
     "fast-glob": "^3.3.2",
     "lint-staged": "^15.2.0",
