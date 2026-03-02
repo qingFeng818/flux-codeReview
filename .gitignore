@@ -10,6 +10,7 @@ logs
 node_modules
 temp
 .eslintcache
+summary.md
 .flux-codeReview.yaml
 .flux-codeReview.yaml,
 .flux-codeReview.json,

@@ -4,28 +4,15 @@
   "version": "0.0.8",
   "packageManager": "pnpm@10.6.2",
   "description": "基于本地和github代码进行code review",
-  "author": "chenghuai",
+  "author": "qingfeng",
   "license": "MIT",
   "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
+  "repository": { "type": "git", "url": "" },
   "bugs": "",
-  "keywords": [
-    "encode",
-    "flux",
-    "code-review",
-    "ai",
-    "github",
-    "openai"
-  ],
+  "keywords": ["encode", "flux", "code-review", "ai", "github", "openai"],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs"
-    },
+    ".": { "types": "./dist/index.d.mts", "import": "./dist/index.mjs" },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
